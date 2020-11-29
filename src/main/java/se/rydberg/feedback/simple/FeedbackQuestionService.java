@@ -22,4 +22,8 @@ public class FeedbackQuestionService {
         return mongoTemplate.findById(id, FeedbackQuestion.class);
     }
 
+    public void save(FeedbackQuestion feedbackQuestion){
+        mongoTemplate.save(feedbackQuestion);
+    }
+
 }

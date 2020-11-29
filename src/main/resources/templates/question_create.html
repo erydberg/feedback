@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback - skapa fråga</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/style.css}"/>
+</head>
+<body>
+
+<form id="formquestion" method="post" class="form-general" th:action="@{/questions/save}" th:object="${question}">
+    <div class="form-box">
+        <input type="hidden" id="id" th:field="*{id}">
+        <h1><label for="question">Skapa en fråga</label></h1>
+        <textarea th:field="*{question}" id="question" name="question" rows="10" cols="60" autofocus></textarea>
+        <label for="order">Sorteringsordning</label>
+        <input type="number" id="order" th:field="*{order}">
+    </div>
+    <div class="submit-area">
+        <button type="submit">Spara</button>
+    </div>
+</form>
+</body>
+</html>

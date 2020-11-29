@@ -20,7 +20,7 @@ public class FeedbackQuestion {
     private String id;
     private String question;
     private boolean active;
-    private int Order;
+    private int order;
 
 
 }
