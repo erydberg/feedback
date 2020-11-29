@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="sv" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback - lista svar</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/style.css}"/>
+</head>
+<body>
+
+<div class="nav-box">
+<span class="toolbar">
+</span>
+    <h1 th:text="${question.question}"></h1>
+</div>
+<div class="notepad">
+    <ul class="list" th:each="answer: ${answers}">
+        <li th:text="${answer.feedbackMessage}"></li>
+    </ul>
+</div>
+</body>
+</html>

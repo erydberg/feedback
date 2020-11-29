@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodbserver
+    ports:
+      - 27017:27017
+  app:
+    image: rydberg/feedback
+    ports:
+      - 8200:8100
+    links:
+      - mongodb
+    depends_on:
+      - mongodb

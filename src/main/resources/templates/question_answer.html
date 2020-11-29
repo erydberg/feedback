@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="sv" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback - start</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/style.css}"/>
+</head>
+<body>
+
+<form id="answerquestion" method="post" class="form-general" th:action="@{/answer/save}" th:object="${answer}">
+    <div class="form-box">
+        <input type="hidden" id="id" th:field="*{id}">
+        <input type="hidden" questionid="questionid" th:field="*{questionid}">
+        <h1><th:label for="answer" th:text="${answer.question}"></th:label></h1>
+        <textarea th:field="*{feedbackMessage}" id="answer" name="answer" rows="10" cols="60" autofocus></textarea>
+    </div>
+    <div class="submit-area">
+        <button type="submit">Spara</button>
+    </div>
+
+</form>
+
+</body>
+</html>
