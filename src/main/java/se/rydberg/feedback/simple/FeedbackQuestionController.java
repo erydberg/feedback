@@ -43,10 +43,9 @@ public class FeedbackQuestionController {
         return "answer_thankyou";
     }
 
-
-
-
-
-
-
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable String id, Model model){
+        feedbackQuestionService.delete(id);
+        return "question_removed";
+    }
 }

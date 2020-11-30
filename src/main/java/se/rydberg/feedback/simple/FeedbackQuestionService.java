@@ -1,6 +1,9 @@
 package se.rydberg.feedback.simple;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +18,8 @@ public class FeedbackQuestionService {
     }
 
     public List<FeedbackQuestion> getAll(){
-        return mongoTemplate.findAll(FeedbackQuestion.class);
+        Query query = new Query().with(Sort.by(Sort.Direction.ASC, "order"));
+        return mongoTemplate.find(query, FeedbackQuestion.class);
     }
 
     public FeedbackQuestion getQuestion(String id){
@@ -26,4 +30,8 @@ public class FeedbackQuestionService {
         mongoTemplate.save(feedbackQuestion);
     }
 
+    public void delete(String id) {
+        Query query = new Query().addCriteria(Criteria.where("id").is(id));
+        mongoTemplate.findAndRemove(query, FeedbackQuestion.class);
+    }
 }
