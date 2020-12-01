@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="sv" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback - admin frågor</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/style.css}"/>
+</head>
+<body>
+
+<div class="nav-box">
+<span class="toolbar">
+</span>
+    <h1 th:text="${message}"></h1>
+</div>
+<a th:href="@{/answer/viewanswers}">Tillbaka till frågorna</a>
+</body>
+</html>

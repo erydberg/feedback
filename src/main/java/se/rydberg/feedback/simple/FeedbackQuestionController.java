@@ -18,7 +18,7 @@ public class FeedbackQuestionController {
 
     @GetMapping("")
     public String start(Model model){
-        model.addAttribute("questions", feedbackQuestionService.getAll());
+        model.addAttribute("questions", feedbackQuestionService.getAllActive());
 
         return "list_questions";
     }
@@ -46,6 +46,22 @@ public class FeedbackQuestionController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable String id, Model model){
         feedbackQuestionService.delete(id);
-        return "question_removed";
+        model.addAttribute("message", "Frågan är borttagen");
+        return "question_management";
+    }
+
+    @GetMapping("/deactivate/{id}")
+    public String deactivate(@PathVariable String id, Model model){
+        feedbackQuestionService.deactivate(id);
+        model.addAttribute("message", "Frågan är avpublicerad");
+        return "question_management";
+    }
+
+    @GetMapping("/activate/{id}")
+    public String activate(@PathVariable String id, Model model){
+        feedbackQuestionService.activate(id);
+        model.addAttribute("message", "Frågan är publicerad");
+        return "question_management";
     }
 }
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Feedback - lista frågor</title>
@@ -9,13 +9,17 @@
 
 <div class="nav-box">
 <span class="toolbar">
+    <a class="toolitem" th:href="@{'/questions/create'}"><img th:src="@{/styles/newlist.png}"></a>
 </span>
-    <h1>Välj fråga</h1>
+    <h1>Hantera frågor och se svar</h1>
 </div>
 <div class="notepad">
     <ul class="list">
         <li th:each="question: ${questions}">
             <a th:href="@{'/answer/viewanswersfor/'+${question.id}}" th:text="${question.question}"></a>
+            (<a th:if="${question.active}" th:href="@{'/questions/deactivate/' + ${question.id}}">Avaktivera</a>
+            <a th:unless="${question.active}" th:href="@{'/questions/activate/' + ${question.id}}">Aktivera</a>
+            | <a th:href="@{'/questions/delete/' + ${question.id}}">Ta bort</a>)
         </li>
     </ul>
 </div>
