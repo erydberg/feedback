@@ -118,6 +118,7 @@ fieldset {
 }
 textarea {
     font-size: large;
+    width:100%
 }
 .size-3 input, .size-3 textarea, .size-3 select {
     width: 200px;

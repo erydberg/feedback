@@ -6,7 +6,7 @@ services:
     ports:
       - 27017:27017
   app:
-    image: erydberg/feedback:0.0.1-SNAPSHOT
+    image: erydberg/feedback:0.0.2-SNAPSHOT
     ports:
       - 8200:8100
     links:
